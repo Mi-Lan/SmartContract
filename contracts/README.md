@@ -1,0 +1,1 @@
+Here will be all .sol smart contracts we work on!
