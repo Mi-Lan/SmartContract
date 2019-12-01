@@ -1,5 +1,6 @@
 //only purpose of this file is to go into contracts folder
 //and compile every contract that is inside of it
+//and then export it!
 
 const path=require('path');
 const fs=require('fs');
