@@ -10,6 +10,7 @@ contract Author{
     }
     
     mapping(bytes32=>Creator) songToStruct;
+    bytes32 [] public songList;
     
     address administrator;
     
@@ -23,10 +24,17 @@ contract Author{
         require ((songToStruct[song].owner==0x0000000000000000000000000000000000000000&&price!=0),"Song already has an author or Invalid price!");
         
         songToStruct[song]=Creator(forSelling,price,msg.sender);
+
+        songList.push(song);
         
         return "succesfull";
         
     }
+    function songLister() public returns(bytes32[] memory ){
+        return songList;
+    }
+  
+        
     
     function getPrice(string memory song)public view returns( uint){
         bytes32 songer= keccak256(abi.encodePacked(song));
